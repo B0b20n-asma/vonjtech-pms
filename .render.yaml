@@ -1,0 +1,20 @@
+
+
+
+services:
+  - type: web
+    name: vonjtech-pms
+    env: python
+    plan: starter
+    branch: main  # Change if your default branch is different
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn vonjtech_pms.wsgi
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: vonjtech_pms.settings
+      - key: SECRET_KEY
+        fromDatabase: true  # You can store your secret key in Render's dashboard
+      - key: DEBUG
+        value: "False"
+      - key: ALLOWED_HOSTS
+        value: ".onrender.com"  # Adjust as needed

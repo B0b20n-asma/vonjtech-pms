@@ -1,0 +1,2 @@
+
+web: gunicorn vonjtech_pms.wsgi
