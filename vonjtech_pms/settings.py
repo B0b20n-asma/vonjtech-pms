@@ -24,7 +24,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'insecure-secret-for-dev-only')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False') == 'False'
 
-LLOWED_HOSTS = ['vonjtech-pms.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['vonjtech-pms.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
