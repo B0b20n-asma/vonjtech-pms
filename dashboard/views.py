@@ -71,7 +71,7 @@ def add_project(request):
 
 @login_required
 def update_project(request, pk):
-    project = Project.objects.get(id=pk)
+    project = Project.objects.get(pk=pk)
     if request.method == 'POST':
         form = ProjectForm(request.POST, instance=project)
         if form.is_valid():
@@ -79,7 +79,7 @@ def update_project(request, pk):
             return redirect('project_list')
     else:
         form = ProjectForm(instance=project)
-    return render(request, 'main/update_project.html', {'form': form})
+    return render(request, 'update_project.html', {'form': form})
 
 @login_required
 def delete_project(request, pk):  # ✅ Changed from 'project_id' to 'pk'

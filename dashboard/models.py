@@ -7,6 +7,8 @@ class Project(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)  # 👈 this field is required
+    assigned_to = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='assigned_projects')
+    due_date = models.DateField(null=True, blank=True)
     def __str__(self):
         return self.name
 
