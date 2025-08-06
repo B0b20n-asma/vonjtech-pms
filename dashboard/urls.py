@@ -31,6 +31,9 @@ urlpatterns = [
     path('dashboard/', views.dashboard, name='dashboard'),
     path('tasks/create/', views.create_task, name='create_task'),
 
+    #  for documentation and contact form
+    path('documentation/', views.documentation, name='documentation'),
+    
     
 ]
 

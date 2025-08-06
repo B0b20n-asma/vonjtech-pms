@@ -5,11 +5,11 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login,logout
 from .models import Project, Task
 from django.shortcuts import get_object_or_404,redirect, render
-from .forms import ProjectForm, TaskForm,ContactForm
+from .forms import ProjectForm, TaskForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
-from django.core.mail import send_mail
+from django.core.mail import send_mail, BadHeaderError
 from django.conf import settings
 
 # Create your views here.
@@ -190,17 +190,10 @@ def create_task(request):
     return render(request, 'create_task.html', {'form': form})
 
 
-def contact_us(request):
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            send_mail(
-                form.cleaned_data['subject'],
-                f"From: {form.cleaned_data['name']} <{form.cleaned_data['email']}>\n\n{form.cleaned_data['message']}",
-                settings.DEFAULT_FROM_EMAIL,
-                [settings.DEFAULT_FROM_EMAIL],  # or your support email
-            )
-            return render(request, 'contact_success.html')
-    else:
-        form = ContactForm()
-    return render(request, 'contact_us.html', {'form': form})
+
+#  for documentation and contact
+
+
+def documentation(request):
+    return render(request, 'documentation.html')
+
