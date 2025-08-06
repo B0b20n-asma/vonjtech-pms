@@ -27,5 +27,5 @@ class Task(models.Model):
     due_date = models.DateField()
     attachment = models.FileField(upload_to='task_files/', blank=True, null=True)  # <-- File upload
 def __str__(self):
-        return self.name
+        return self.title
 

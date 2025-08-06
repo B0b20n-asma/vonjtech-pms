@@ -26,9 +26,11 @@
                 <tr>
                     <td>
                         {% if task.id %}
-                            <a href="{% url 'task_detail' task.id %}">{{ task.name }}</a>
+                            <!-- ✅ FIXED HERE -->
+                            <a href="{% url 'task_detail' task.id %}">{{ task.title }}</a>
                         {% else %}
-                            {{ task.name }}
+                            <!-- ✅ FIXED HERE -->
+                            {{ task.title }}
                         {% endif %}
                     </td>
                     <td>{{ task.description }}</td>
@@ -69,4 +71,3 @@
     </div>
 </div>
 {% endblock %}
-
